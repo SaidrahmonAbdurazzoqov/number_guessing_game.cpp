@@ -396,3 +396,35 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+
+using namespace std;
+
+int main() {
+    srand(time(0)); // Initialize random seed
+
+    int numberToGuess = rand() % 100; // Generate random number between 0 and 99
+    int guess;
+    int attempts = 0;
+
+    cout << "Welcome to the Number Guessing Game!" << endl;
+
+    do {
+        cout << "Enter your guess (between 0 and 99): ";
+        cin >> guess;
+        
+        if (guess < numberToGuess) {
+            cout << "Too low! Try again." << endl;
+        } else if (guess > numberToGuess) {
+            cout << "Too high! Try again." << endl;
+        }
+        
+        attempts++;
+    } while (guess != numberToGuess);
+
+    cout << "Congratulations! You guessed the number in " << attempts << " attempts." << endl;
+
+    return 0;
+}
